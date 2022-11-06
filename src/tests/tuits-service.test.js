@@ -122,37 +122,56 @@ describe('can retrieve a tuit by their primary key with REST API', () => {
     })
 });
 
+const user = {
+    username: 'ellenripley',
+    password: 'lv426',
+    email: 'ellenripley@aliens.com'
+};
+
+let newUser;
+
+beforeAll(async() => {
+    newUser = await createUser(user);
+
+})
+
+afterAll(() => {
+    return deleteUsersByUsername(user.username);
+})
+
+
 describe('can retrieve all tuits with REST API', () => {
   // TODO: implement this
-    const user = {
-        username: 'ellenripley',
-        password: 'lv426',
-        email: 'ellenripley@aliens.com'
-    };
+
+  //   const user = {
+  //       username: 'ellenripley',
+  //       password: 'lv426',
+  //       email: 'ellenripley@aliens.com'
+  //   };
 
     const tuitLists = [
         "Hello World!", "Welcome to CS5610.", "I love professor Jose."
     ];
 
-    let userId;
+    // let userId;
 
     beforeAll(() => {
             return Promise.all(tuitLists.map(tuit =>
-                        createTuit(userId, {tuit: tuit})
+                        createTuit(newUser._id, {tuit: tuit})
                 ));
         }
     );
 
     afterAll( async () =>{
-            const addTuits = await findTuitByUser(userId);
+            const addTuits = await findTuitByUser(newUser._id);
             return Promise.all(addTuits.map(tuit =>
                 deleteTuit(tuit._id)));
         }
     );
 
     test('can retrieve all tuits with REST API', async () => {
-        const newUser = await createUser(user);
-        userId = newUser._id;
+        // const newUser = await createUser(user);
+        // userId = newUser._id;
         const tuits = await findAllTuits();
 
         expect(tuits.length).toBeGreaterThanOrEqual(tuitLists.length);
