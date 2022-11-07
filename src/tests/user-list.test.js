@@ -20,6 +20,7 @@ test('user list renders static user array', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+// Please See user-list-async.test
 // test('user list renders async', async () => {
 //   const users = await findAllUsers();
 //   render(

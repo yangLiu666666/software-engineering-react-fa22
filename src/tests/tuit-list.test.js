@@ -8,9 +8,9 @@ jest.mock('axios');
 
 const MOCKED_USERS = [
   // "alice", "bob", "charlie"
-    {username: 'alice', _id:'123'},
-    {username: 'bob', _id:'234'},
-    {username: 'charlie', _id:'345'}
+    {username: 'alice', password: "alice123", email: "alice@gmail.com", _id:'123'},
+    {username: 'bob', password: "bob123", email: "bob@gmail.com", _id:'234'},
+    {username: 'charlie', password: "charlie123", email: "bob@gmail.com", _id:'345'}
 ];
 
 const MOCKED_TUITS = [
@@ -32,7 +32,7 @@ test('tuit list renders static tuit array', () => {
 });
 
 // test('tuit list renders async', async () => {
-//   // TODO: implement this
+//   // TODO: implement this -- Please See tuit-list-async.test
 //   const tuits = await findAllTuits();
 //   render(
 //       <HashRouter>
