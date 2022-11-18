@@ -12,7 +12,7 @@ const Home = () => {
   const userId = uid;
   const findTuits = () => {
     if(uid) {
-      return service.findTuitByUser(uid)
+      return service.findTuitsByUser(uid)
         .then(tuits => setTuits(tuits))
     } else {
       return service.findAllTuits()
@@ -21,17 +21,16 @@ const Home = () => {
   }
   useEffect(() => {
     let isMounted = true;
-    findTuits()
+    findTuits();
     return () => {isMounted = false;}
   }, []);
   const createTuit = () => {
     if (tuit != null) {
-      service.createTuit(userId, {tuit})
+      service.createTuitByUser('me', {tuit})
           .then(findTuits)
     }
   }
-      // service.createTuit(userId, {tuit})
-      //     .then(findTuits)
+
   const deleteTuit = (tid) =>
       service.deleteTuit(tid)
           .then(findTuits)
