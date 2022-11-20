@@ -16,7 +16,7 @@ const Tuits = ({tuits = [], deleteTuit, refreshTuits}) => {
 
     return (
         <div>
-            <ul>
+            <ul className="ttr-tuits list-group">
                 {
                     tuits.map(tuit =>
                         <Tuit key={tuit._id}
