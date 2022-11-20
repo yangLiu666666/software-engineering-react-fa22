@@ -4,6 +4,7 @@ import MyTuits from "./my-tuits";
 import TuitsAndReplies from "./tuits-and-replies";
 import Media from "./media";
 import MyLikes from "./my-likes";
+import MyDislikes from "./my-dislikes";
 import {Link, Route, Routes, useNavigate, useLocation} from "react-router-dom";
 import * as service from "../../services/auth-service"
 
@@ -107,6 +108,8 @@ const Profile = () => {
                element={<Media/>}/>
         <Route path="/mylikes"
                element={<MyLikes/>}/>
+        <Route path="/mydislikes"
+               element={<MyDislikes/>}/>
       </Routes>
     </div>
   );
