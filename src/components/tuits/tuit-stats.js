@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import * as dislikesService from "../../services/dislikes-service"
 import * as likesService from "../../services/likes-service"
 
-const TuitStats = ({tuit, likeTuit, dislikeTuit}) => {
+const TuitStats = ({tuit, likeTuit = () => {}, dislikeTuit  = () => {}}) => {
     const [hasLiked, setHasLiked] = useState(false);
     const [hasDisliked, setHasDisliked] = useState(false);
     const updateLike = async() => {
