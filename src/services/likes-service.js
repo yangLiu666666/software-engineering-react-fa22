@@ -5,12 +5,8 @@ const USERS_API = `${BASE_URL}/api/users`;
 const TUITS_API = `${BASE_URL}/api/tuits`;
 
 const api = axios.create({
-    withCredentials: true
+  withCredentials: true
 });
-
-export const userTogglesTuitLikes = (uid, tid) =>
-    api.put(`${USERS_API}/${uid}/likes/${tid}`)
-        .then(response => response.data);
 
 export const findAllTuitsLikedByUser = (userId) =>
     api.get(`${USERS_API}/${userId}/likes`)
@@ -24,6 +20,6 @@ export const userLikesTuit = (uid, tid) =>
     api.put(`${USERS_API}/${uid}/likes/${tid}`)
         .then(response => response.data);
 
-export const userHasLikedTuit = (uid, tid) =>
-    api.get(`${USERS_API}/${uid}/likes/${tid}`)
+export const userTogglesTuitLikes = (uid, tid) =>
+    api.put(`${USERS_API}/${uid}/likes/${tid}`)
         .then(response => response.data);

@@ -1,7 +1,12 @@
+import React from "react";
+import './tuits.css';
 import Tuit from "./tuit";
 import * as likesService from "../../services/likes-service";
 import * as dislikesService from "../../services/dislikes-service";
-const Tuits = ({tuits = [], deleteTuit, refreshTuits}) => {
+
+const Tuits = ({tuits = [], deleteTuit,
+                   refreshTuits}) => {
+
     const likeTuit = (tuit) =>
         likesService
             .userTogglesTuitLikes("me", tuit._id)
@@ -28,4 +33,5 @@ const Tuits = ({tuits = [], deleteTuit, refreshTuits}) => {
         </div>
     );
 }
+
 export default Tuits;
