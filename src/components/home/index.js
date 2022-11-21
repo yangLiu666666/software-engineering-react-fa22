@@ -20,15 +20,15 @@ const Home = () => {
   }
   useEffect(() => {
     let isMounted = true;
-    findTuits()
+    findTuits();
     return () => {isMounted = false;}
   }, []);
   const createTuit = () =>
       service.createTuitByUser("me", {tuit})
           .then(findTuits)
-  const deleteTuit = (tid) =>
-      service.deleteTuit(tid)
-          .then(findTuits)
+    }
+  }
+
   return(
       <div className="ttr-home">
         <div className="border border-bottom-0">

@@ -1,6 +1,8 @@
 import axios from "axios";
+
 //const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com"
 //const BASE_URL = "https://my-tuit-project.herokuapp.com";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const TUITS_API = `${BASE_URL}/api/tuits`;
 const USERS_API = `${BASE_URL}/api/users`;

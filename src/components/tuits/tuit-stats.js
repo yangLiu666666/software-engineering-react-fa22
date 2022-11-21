@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import * as dislikesService from "../../services/dislikes-service"
+import * as likesService from "../../services/likes-service"
 
 const TuitStats = ({
                        tuit, likeTuit, dislikeTuit = () => {
@@ -45,7 +47,6 @@ const TuitStats = ({
                     <span className="ttr-stats-dislikes"> {tuit.stats.dislikes}</span>
           </span>
             </div>
-
             <div className="col">
                 <i className="far fa-inbox-out"></i>
             </div>
