@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = 'https://my-tuit-project.herokuapp.com';
 
 const AUTH_API = `${BASE_URL}/api/auth`
 
@@ -19,6 +19,10 @@ export const logout = (user) =>
         .then(response => response.data);
 
 
-export const login = (credentials) =>
-    api.post(`${AUTH_API}/login`, credentials)
+// export const login = (credentials) =>
+//     api.post(`${AUTH_API}/login`, credentials)
+//         .then(response => response.data);
+
+export const login = (user) =>
+    api.post(`${AUTH_API}/login`, user)
         .then(response => response.data);

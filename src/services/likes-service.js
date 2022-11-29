@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -24,4 +22,12 @@ export const userLikesTuit = (uid, tid) =>
 
 export const userTogglesTuitLikes = (uid, tid) =>
     api.put(`${USERS_API}/${uid}/likes/${tid}`)
+        .then(response => response.data);
+
+export const userAlreadyLikesTuit = (uid, tid) =>
+    api.get(`${USERS_API}/${uid}/likes/${tid}`)
+        .then(response => response.data);
+
+export const userAlreadyDislikesTuit = (uid, tid) =>
+    api.get(`${USERS_API}/${uid}/dislikes/${tid}`)
         .then(response => response.data);

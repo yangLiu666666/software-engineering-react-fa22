@@ -10,6 +10,6 @@ test('user list renders async', async () => {
             <UserList users={users}/>
         </HashRouter>);
 
-    const linkElement = screen.getByText(/User1/i);
+    const linkElement = screen.getByText(/ellen_ripley/i);
     expect(linkElement).toBeInTheDocument();
 })
