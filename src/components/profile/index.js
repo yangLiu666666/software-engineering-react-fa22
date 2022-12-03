@@ -1,8 +1,29 @@
-import React from "react";
-import Tuits from "../tuits";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import MyTuits from "../profile/my-tuits";
+import { Link, Route, Routes, useNavigate, useLocation} from "react-router-dom";
+import * as service from "../../services/auth-service";
+import TuitsAndReplies
+  from "./tuits-and-replies";
+import Media from "./media";
+import MyLikes from "./my-likes";
+import MyDislikes from "./my-dislikes";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [profile, setProfile] = useState({});
+  useEffect(async () => {
+    try {
+      const user = await service.profile();
+      setProfile(user);
+    } catch (e) {
+      navigate('/login');
+    }
+  }, []);
+  const logout = () => {
+    service.logout()
+        .then(() => navigate('/login'));
+  }
   return(
     <div className="ttr-profile">
       <div className="border border-bottom-0">
@@ -67,7 +88,18 @@ const Profile = () => {
           </ul>
         </div>
       </div>
-      <Tuits/>
+      <Routes>
+        <Route path="/mytuits"
+               element={<MyTuits/>}/>
+        <Route path="/tuits-and-replies"
+               element={<TuitsAndReplies/>}/>
+        <Route path="/media"
+               element={<Media/>}/>
+        <Route path="/mylikes"
+               element={<MyLikes/>}/>
+        <Route path="/mydislikes"
+               element={<MyDislikes/>}/>
+      </Routes>
     </div>
   );
 }
