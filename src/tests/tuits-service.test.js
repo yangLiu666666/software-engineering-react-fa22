@@ -3,7 +3,7 @@ import {
     deleteTuit,
     findTuitById,
     findAllTuits,
-    findTuitByUser
+    findTuitsByUser
 } from "../services/tuits-service";
 
 import {
